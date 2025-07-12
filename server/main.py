@@ -3,7 +3,7 @@ from fastapi.responses import PlainTextResponse
 from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy.orm import Session
 
-from routes import auth
+from routes import auth, prompts
 from database.database import engine, get_db
 import database.models as models
 
@@ -23,6 +23,7 @@ app.add_middleware(
 
 # Include routers
 app.include_router(auth.router)
+app.include_router(prompts.router, prefix="/api/v1")
 
 @app.get("/", response_class=PlainTextResponse)
 def read_root():
