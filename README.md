@@ -1,0 +1,3 @@
+# Promptly
+
+Promptly is a powerful application designed for AI enthusiasts and developers to analyze, browse, and manage AI prompts efficiently. This application provides a centralized platform where users can save, categorize, and analyze the effectiveness of different prompts for various AI models. With features like prompt versioning, performance metrics, and community sharing, Promptly helps you optimize your AI interactions and discover the most effective prompts for your specific use cases. The backend is built with FastAPI, ensuring a robust and scalable API for all your prompt management needs.
