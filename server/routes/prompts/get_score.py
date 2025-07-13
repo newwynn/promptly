@@ -1,7 +1,7 @@
 from fastapi import APIRouter, HTTPException, Depends
 from .schemas import PromptInput, PromptScore
 from scoring import analyze_prompt
-from ...auth.token import get_current_user
+from routes.auth.token import get_current_user
 
 router = APIRouter()
 

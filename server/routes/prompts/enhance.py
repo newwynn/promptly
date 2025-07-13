@@ -1,6 +1,6 @@
 from fastapi import APIRouter, HTTPException, Depends
 from .schemas import PromptInput, PromptEnhanced
-from ...auth.token import get_current_user
+from routes.auth.token import get_current_user
 
 router = APIRouter()
 
