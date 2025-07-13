@@ -1,7 +1,8 @@
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, HTTPException, Depends
 from pydantic import BaseModel
 from typing import Dict
 from scoring import analyze_prompt
+from routes.auth import get_current_user
 
 router = APIRouter(
     tags=["prompts"]
@@ -19,7 +20,7 @@ class PromptScore(BaseModel):
     total_score: int
 
 @router.post("/prompts/get-score", response_model=PromptScore)
-def get_prompt_score(prompt_input: PromptInput):
+def get_prompt_score(prompt_input: PromptInput, current_user=Depends(get_current_user)):
     """
     Analyze the prompt and return a detailed score breakdown.
     """

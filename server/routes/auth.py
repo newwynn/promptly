@@ -123,7 +123,6 @@ async def signup(user: UserCreate, db: Session = Depends(get_db)):
 async def login(user_credentials: UserLogin, db: Session = Depends(get_db)):
     # Find user by email
     user = db.query(User).filter(User.email == user_credentials.email).first()
-    
     # Verify user exists and password is correct
     if not user or not user.verify_password(user_credentials.password):
         raise HTTPException(
@@ -137,6 +136,8 @@ async def login(user_credentials: UserLogin, db: Session = Depends(get_db)):
     access_token = create_access_token(
         data={"sub": user.email}, expires_delta=access_token_expires
     )
+
+    print(f"Request: {user_credentials.method} {user_credentials.url.path} completed in {process_time:.4f}s", flush=True)
     
     return {"access_token": access_token, "token_type": "bearer"}
 
