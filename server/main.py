@@ -7,7 +7,6 @@ from routes import auth, prompts
 from database.database import engine, get_db
 import database.models as models
 
-# Create database tables
 models.Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
