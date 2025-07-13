@@ -8,3 +8,5 @@ frontend/.next
 /backend/__pycache__
 backend/instance
 __pycache__
+sql_app.db
+sql_app.db-journal
