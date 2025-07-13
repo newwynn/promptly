@@ -72,8 +72,7 @@ class UserResponse(BaseModel):
 @router.post("/signup", status_code=status.HTTP_201_CREATED, response_model=UserResponse)
 async def signup(user: UserCreate, db: Session = Depends(get_db)):
     try:
-        print(f"Received signup request for email: {user.email}")
-        
+        print("Received signup request for email:", user.email)
         # Check if user already exists
         db_user = db.query(User).filter(User.email == user.email).first()
         if db_user:
