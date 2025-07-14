@@ -6,6 +6,7 @@ from fastapi.security import OAuth2PasswordBearer
 from pydantic import BaseModel
 from database.database import get_db
 from sqlalchemy.orm import Session
+from database.models import User
 
 SECRET_KEY = "your-secret-key"
 ALGORITHM = "HS256"
