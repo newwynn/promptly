@@ -5,7 +5,6 @@ from transformers import pipeline
 
 router = APIRouter()
 
-# Load the HuggingFace pipeline once at module level
 try:
     enhancer = pipeline("text2text-generation", model="google/flan-t5-small")
 except Exception as e:
